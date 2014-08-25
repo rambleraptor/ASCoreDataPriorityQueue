@@ -13,6 +13,7 @@
 		6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
 		6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5B8195388D20070C39A /* InfoPlist.strings */; };
 		FA4564CD19A850AA00D8EE37 /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = FA4564CC19A850AA00D8EE37 /* Tests.m */; };
+		FAD0378119AAD7040001D865 /* TestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD0378019AAD7040001D865 /* TestModel.m */; };
 		FAFD1EC219A8232C00856DAD /* ASCoreDataPriorityQueue.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FAFD1EC019A8232C00856DAD /* ASCoreDataPriorityQueue.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
@@ -32,6 +33,8 @@
 		E68ED74284B447D8BA28CDCF /* Pods-ASCoreDataPriorityQueue.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ASCoreDataPriorityQueue.xcconfig"; path = "Pods/Pods-ASCoreDataPriorityQueue.xcconfig"; sourceTree = "<group>"; };
 		E9F8BADCA35E4C9995331865 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		FA4564CC19A850AA00D8EE37 /* Tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tests.m; sourceTree = "<group>"; };
+		FAD0377F19AAD7040001D865 /* TestModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestModel.h; sourceTree = "<group>"; };
+		FAD0378019AAD7040001D865 /* TestModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestModel.m; sourceTree = "<group>"; };
 		FAFD1EC119A8232C00856DAD /* ASCoreDataPriorityQueue.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ASCoreDataPriorityQueue.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -86,6 +89,8 @@
 			isa = PBXGroup;
 			children = (
 				FAFD1EC019A8232C00856DAD /* ASCoreDataPriorityQueue.xcdatamodeld */,
+				FAD0377F19AAD7040001D865 /* TestModel.h */,
+				FAD0378019AAD7040001D865 /* TestModel.m */,
 				6003F5B6195388D20070C39A /* Supporting Files */,
 				FA4564CC19A850AA00D8EE37 /* Tests.m */,
 			);
@@ -216,6 +221,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAD0378119AAD7040001D865 /* TestModel.m in Sources */,
 				FAFD1EC219A8232C00856DAD /* ASCoreDataPriorityQueue.xcdatamodeld in Sources */,
 				FA4564CD19A850AA00D8EE37 /* Tests.m in Sources */,
 			);

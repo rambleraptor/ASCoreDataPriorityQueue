@@ -1,15 +1,16 @@
 #import <Foundation/Foundation.h>
-#import <CoreData/CoreData.h>
+#define MR_SHORTHAND
+#import <MagicalRecord/CoreData+MagicalRecord.h>
 
 
 @interface ASCoreDataPriorityQueue : NSObject
 
 #pragma mark - Init
-- (id)initWithType:(NSString *)type andComparator:(NSComparator)compare;
+- (id)initWithType:(Class)type andComparator:(NSComparator)compare;
 
 #pragma mark - Information
 - (BOOL)isEmpty;
-- (NSString *)containsType;
+- (Class)containsType;
 - (NSUInteger)size;
 - (NSMutableArray *) asQueue;
 
@@ -20,6 +21,9 @@
 #pragma mark - Queue Functions
 - (id)peek;
 - (id)pop;
+
+#pragma mark - Delete
+- (void)clear;
 
 @end
 

@@ -10,6 +10,7 @@
 #define EXP_SHORTHAND
 #import <Expecta/Expecta.h>
 #import "ASCoreDataPriorityQueue.h"
+#import "TestModel.h"
 
 SpecBegin(ASCoreDataPriorityQueue)
 
@@ -17,7 +18,7 @@ describe(@"ASCoreDataPriorityQueue", ^{
     __block ASCoreDataPriorityQueue *queue;
     
     beforeEach(^{
-        NSComparator comparator = ^NSComparisonResult(NSManagedObject *obj1, NSManagedObject *obj2) {
+        NSComparator comparator = ^NSComparisonResult(TestModel *obj1, TestModel *obj2) {
             if ([obj1 valueForKey:@"number"] > [obj2 valueForKey:@"number"]) {
                 return NSOrderedDescending;
             }
@@ -25,16 +26,16 @@ describe(@"ASCoreDataPriorityQueue", ^{
                 return NSOrderedAscending;
             }
         };
-        queue = [[ASCoreDataPriorityQueue alloc] initWithType:@"TestModel" andComparator:comparator];
+        queue = [[ASCoreDataPriorityQueue alloc] initWithType:[TestModel class] andComparator:comparator];
         
         // Fill queue with objects
-        NSManagedObject *obj1 = [queue push];
+        TestModel *obj1 = [queue push];
         [obj1 setValue:@1 forKey:@"number"];
-        NSManagedObject *obj2 = [queue push];
+        TestModel *obj2 = [queue push];
         [obj1 setValue:@2 forKey:@"number"];
-        NSManagedObject *obj3 = [queue push];
+        TestModel *obj3 = [queue push];
         [obj1 setValue:@3 forKey:@"number"];
-        NSManagedObject *obj4 = [queue push];
+        TestModel *obj4 = [queue push];
         [obj1 setValue:@4 forKey:@"number"];
     });
     
@@ -79,6 +80,7 @@ describe(@"ASCoreDataPriorityQueue", ^{
     });
     
     afterEach(^{
+        [queue clear];
         queue = nil;
     });
     
