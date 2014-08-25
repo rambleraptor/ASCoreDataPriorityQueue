@@ -6,11 +6,10 @@ Pod::Spec.new do |s|
   s.license          = 'MIT'
   s.author           = { "Alex Stephen" => "stepa@umich.edu" }
   s.source           = { :git => "https://github.com/astephen2/ASCoreDataPriorityQueue.git", :tag => s.version.to_s }
+  s.dependency       'MagicalRecord', '~> 2.2'
 
   s.platform     = :ios, '7.0'
   s.requires_arc = true
 
   s.source_files = 'Pod/Classes'
-  s.resources = 'Pod/Assets/*.png'
-
 end
