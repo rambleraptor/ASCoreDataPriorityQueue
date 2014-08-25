@@ -4,6 +4,6 @@
         <attribute name="number" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
     </entity>
     <elements>
-        <element name="TestModel" positionX="-63" positionY="-18" width="128" height="60"/>
+        <element name="TestModel" positionX="-63" positionY="-18" width="128" height="30"/>
     </elements>
 </model>

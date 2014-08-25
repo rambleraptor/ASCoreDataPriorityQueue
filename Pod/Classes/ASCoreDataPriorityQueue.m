@@ -15,7 +15,8 @@
     self.type = type;
     self.comparator = compare;
     
-    [MagicalRecord setupAutoMigratingCoreDataStack];
+    [MagicalRecord setDefaultModelFromClass:type];
+    [MagicalRecord setupCoreDataStackWithInMemoryStore];
     return self;
 }
 
@@ -25,7 +26,7 @@
 }
 
 -(BOOL) isEmpty{
-    return [self count];
+    return ![self count];
 }
 
 -(NSUInteger)size{
@@ -46,12 +47,11 @@
     return [self.queue firstObject];
 }
 
--(id)pop{
+-(void)pop{
     [self updateCache];
     id object = [self peek];
     
     [self deleteObject:object];
-    return object;
     
 }
 

@@ -20,7 +20,7 @@
 
 #pragma mark - Queue Functions
 - (id)peek;
-- (id)pop;
+- (void)pop;
 
 #pragma mark - Delete
 - (void)clear;

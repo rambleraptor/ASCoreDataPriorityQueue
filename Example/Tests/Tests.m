@@ -17,9 +17,9 @@ SpecBegin(ASCoreDataPriorityQueue)
 describe(@"ASCoreDataPriorityQueue", ^{
     __block ASCoreDataPriorityQueue *queue;
     
-    beforeEach(^{
+    beforeAll(^{
         NSComparator comparator = ^NSComparisonResult(TestModel *obj1, TestModel *obj2) {
-            if ([obj1 valueForKey:@"number"] > [obj2 valueForKey:@"number"]) {
+            if ([obj1.number intValue] > [obj2.number intValue]) {
                 return NSOrderedDescending;
             }
             else {
@@ -28,19 +28,22 @@ describe(@"ASCoreDataPriorityQueue", ^{
         };
         queue = [[ASCoreDataPriorityQueue alloc] initWithType:[TestModel class] andComparator:comparator];
         
+    });
+    
+    beforeEach(^{
         // Fill queue with objects
         TestModel *obj1 = [queue push];
-        [obj1 setValue:@1 forKey:@"number"];
+        obj1.number = @1;
         TestModel *obj2 = [queue push];
-        [obj1 setValue:@2 forKey:@"number"];
+        obj2.number = @2;
         TestModel *obj3 = [queue push];
-        [obj1 setValue:@3 forKey:@"number"];
+        obj3.number = @3;
         TestModel *obj4 = [queue push];
-        [obj1 setValue:@4 forKey:@"number"];
+        obj4.number = @4;
     });
     
     it(@"should not return empty", ^{
-        expect([queue isEmpty]).to.beTruthy();
+        expect([queue isEmpty]).to.beFalsy();
     });
     
     it(@"should return the proper size", ^{
@@ -49,39 +52,50 @@ describe(@"ASCoreDataPriorityQueue", ^{
     
     it(@"should add object in sorted order using push", ^{
         NSMutableArray *fullqueue = [[NSMutableArray alloc] initWithArray:@[@1, @2, @3, @4, @5]];
-        NSManagedObject *obj1 = [queue push];
-        [obj1 setValue:@5 forKey:@"number"];
-        expect([queue asQueue]).to.equal(fullqueue);
+        TestModel *obj1 = [queue push];
+        obj1.number = @5;
+        NSArray *queuearray = [queue asQueue];
+        for(int i=0; i<[fullqueue count]; i++){
+            TestModel *item = [queuearray objectAtIndex:i];
+            expect(item.number).to.equal(fullqueue[i]);
+        }
+        
     });
     
     it(@"should delete objects", ^{
-        [queue deleteObject:@4];
-        expect([queue asQueue]).to.equal(@[@1,@2,@3]);
+        TestModel *obj1;
+        obj1.number = @4;
+        [queue deleteObject:obj1];
+        NSMutableArray *fullqueue = [[NSMutableArray alloc] initWithArray:@[@1, @2, @3]];
+        NSMutableArray *queuearray = [queue asQueue];
+        for(int i=0; i<[fullqueue count]; i++){
+            TestModel *item = [queuearray objectAtIndex:i];
+            expect(item.number).to.equal(fullqueue[i]);
+        }
     });
     
     it(@"should peek at the lowest item", ^{
-        expect([queue peek]).to.equal(@1);
-    });
-    
-    it(@"should remove objects and return them", ^{
-        NSNumber *firstnumber = [queue pop];
-        expect(firstnumber).to.equal(@1);
-        expect([queue asQueue]).to.equal(@[@2,@3,@4]);
+        expect([[queue peek] valueForKey:@"number"]).to.equal(@1);
     });
     
     it(@"should push and pop properly", ^{
-        NSManagedObject *obj1 = [queue push];
-        [obj1 setValue:@5 forKey:@"number"];
+        TestModel *obj1 = [queue push];
+        obj1.number = @5;
         NSArray *array = @[@1, @2, @3, @4, @5];
         for (NSNumber *number in array){
-            NSNumber *poppednumber = [queue pop];
-            expect(poppednumber).to.equal(number);
+            TestModel *poppednumber = [queue peek];
+            expect(poppednumber.number).to.equal(number);
+            [queue pop];
         }
+    });
+    
+    it(@"should clear the queue", ^{
+        [queue clear];
+        expect([queue asQueue]).to.beEmpty();
     });
     
     afterEach(^{
         [queue clear];
-        queue = nil;
     });
     
 });
