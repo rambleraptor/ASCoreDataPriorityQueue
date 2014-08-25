@@ -1,0 +1,5 @@
+#import <Foundation/Foundation.h>
+@interface PodsDummy_Pods_ASCoreDataPriorityQueue_ASCoreDataPriorityQueue : NSObject
+@end
+@implementation PodsDummy_Pods_ASCoreDataPriorityQueue_ASCoreDataPriorityQueue
+@end
