@@ -1,6 +1,6 @@
 # ASCoreDataPriorityQueue
 
-[![CI Status](http://img.shields.io/travis/Alex Stephen/ASCoreDataPriorityQueue.svg?style=flat)](https://travis-ci.org/Alex Stephen/ASCoreDataPriorityQueue)
+[![CI Status](http://img.shields.io/travis/astephen2/ASCoreDataPriorityQueue.svg?style=flat)](https://travis-ci.org/astephen2/ASCoreDataPriorityQueue)
 [![Version](https://img.shields.io/cocoapods/v/ASCoreDataPriorityQueue.svg?style=flat)](http://cocoadocs.org/docsets/ASCoreDataPriorityQueue)
 [![License](https://img.shields.io/cocoapods/l/ASCoreDataPriorityQueue.svg?style=flat)](http://cocoadocs.org/docsets/ASCoreDataPriorityQueue)
 [![Platform](https://img.shields.io/cocoapods/p/ASCoreDataPriorityQueue.svg?style=flat)](http://cocoadocs.org/docsets/ASCoreDataPriorityQueue)
